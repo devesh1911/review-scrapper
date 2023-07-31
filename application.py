@@ -4,14 +4,15 @@ import requests
 from bs4 import BeautifulSoup as bs
 from urllib.request import urlopen as uReq
 
-app = Flask(__name__)
+application = Flask(__name__)
+app= application
 
-@application.route('/',methods=['GET'])  # route to display the home page
+@app.route('/',methods=['GET'])  # route to display the home page
 @cross_origin()
 def homePage():
     return render_template("index.html")
 
-@application.route('/review',methods=['POST','GET']) # route to show the review comments in a web UI
+@app.route('/review',methods=['POST','GET']) # route to show the review comments in a web UI
 @cross_origin()
 def index():
     if request.method == 'POST':
